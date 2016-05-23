@@ -1,0 +1,6 @@
+pin clone notes
+
+rails new pinclone (maybe add postgresql for project)
+
+add haml to gemfile
+add bootstrap sass to gemfile
