@@ -19,3 +19,61 @@ git push -u origin master
 
 git remote add origin https://github.com/atomicwest/pinclone.git
 git push -u origin master
+
+cd into app directory
+-------------------------------------------------------------------
+
+edit gemfile; remove commented out gems
+
+add haml, bootstrap-sass, simple_form, then bundle install and restart server
+
+now generate model for pins-> creates timestamped .rb file for the model in db/migrate
+
+run rake db:migrate (got message: [Simple Form] Simple Form is not configured in the application and will use the default values. Use `rails generate simple_form:install` to generate the Simple Form configuration.)
+
+create controller: rails generate controller Pins 
+
+edit pins_controller.rb in app/controllers with index method
+
+edit routes.rb in config folder, make index (from controller) the root route 
+
+create index.html.haml in app/views/pins, put placeholder %h1
+
+add create, new methods in pins_controller.rb
+
+create in app/views/pins new.html.haml, _form.html.haml
+
+in terminal; rails generate simple_form:install --bootstrap 
+        (message:   Be sure to have a copy of the Bootstrap stylesheet available on your
+  application, you can get it on http://getbootstrap.com/.
+
+  Inside your views, use the 'simple_form_for' with one of the Bootstrap form
+  classes, '.form-horizontal' or '.form-inline', as the following:
+
+    = simple_form_for(@user, html: { class: 'form-horizontal' }) do |form|  )
+    
+
+in _form.html.haml --> = simple _form _for @pin, html: { multipart: true } do |f| 
+    relates to image uploading
+
+after editing _form.html.haml, check http://localhost:3000/pins/new to see basic form
+
+edit pins_controller with save handling
+
+edit application.html.erb, change to application.html.haml in app/views/layouts
+
+add show method in pins_controller.rb
+
+add show.html.haml in app/views/pins
+
+change index.html.haml
+
+define @pins in index method of pins_controller
+
+now add edit and destroy methods to controller (at this point, app index doesn't load, complains of not being able to find DNS )
+
+create edit.html.haml in app/views/pins, add if statement to update method in pins_controller
+
+add link to edit and destroy methods in show.html.haml
+
+add link to new pin in index.html.haml
