@@ -163,3 +163,29 @@ edit application.html.haml, adding a nav bar
 get rid of new pin from index.html.haml
 
 add wrapper to new.html.haml and edit.html.haml
+
+-----------------------------
+upload images
+
+add paperclip gem, bundle install, restart server
+paperclip needs imagemagick:
+$ sudo apt-get install imagemagick -y
+
+edit app/models/pin.rb for validation and attached file
+
+run migration
+$ rails generate paperclip pin image
+
+edit app/views/pin/_form.html.haml
+
+$ rake db:migrate
+
+creating a new form now has image upload option
+
+add :image to pins_controller.rb in private method pin_params
+
+edit show.html.haml with image tag so image will show up in the post
+
+edit index.html.haml
+
+add edit.html.haml
