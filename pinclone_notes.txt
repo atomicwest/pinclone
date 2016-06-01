@@ -189,3 +189,16 @@ edit show.html.haml with image tag so image will show up in the post
 edit index.html.haml
 
 add edit.html.haml
+
+add masonry-rails to Gemfile, bundle install  ; this adds the responsive design and moving tile behavior
+add jquery require to javascript file
+
+edit app/assets/javascripts/pins.coffee to add the masonry borders around images
+
+edit index.html.haml
+
+restart server
+
+add more styles to application.css.scss
+
+edit application.css.scss to require masonry/transitions
