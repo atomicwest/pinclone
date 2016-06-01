@@ -61,6 +61,7 @@ after editing _form.html.haml, check http://localhost:3000/pins/new to see basic
 edit pins_controller with save handling
 
 edit application.html.erb, change to application.html.haml in app/views/layouts
+also edit site title application.html.erb 
 
 add show method in pins_controller.rb
 
@@ -148,3 +149,17 @@ edit unassociated entries from database in rails console
 > @user = User.first
 > @pin.user = @user
 > @pin.save
+
+
+----------------------------
+add styling with bootstrap 
+
+edit application.css.scss (rename app/assets/stylesheets/application.css)
+
+edit application.js to require bootstrap
+
+edit application.html.haml, adding a nav bar 
+
+get rid of new pin from index.html.haml
+
+add wrapper to new.html.haml and edit.html.haml
