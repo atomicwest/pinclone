@@ -202,3 +202,18 @@ restart server
 add more styles to application.css.scss
 
 edit application.css.scss to require masonry/transitions
+
+--------------------------------
+
+add vote ability
+
+add acts_as_votable gem, bundle install, restart server
+
+$ rails generate acts_as_votable:migration
+$ rake db:migrate
+
+edit app/models/pin.rb to include acts_as_votable
+edit routes.rb to include likes for users
+edit pins_controller.rb to have public upvote method
+
+add another link to show.html.haml
