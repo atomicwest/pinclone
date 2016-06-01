@@ -12,3 +12,8 @@
 
 </body>
 </html>
+
+
+
+originally on app/views/devise/registrations/edit.html.erb
+<!-- <h2>Edit <%= resource_name.to_s.humanize %></h2> -->

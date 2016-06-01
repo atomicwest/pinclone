@@ -217,3 +217,13 @@ edit routes.rb to include likes for users
 edit pins_controller.rb to have public upvote method
 
 add another link to show.html.haml
+
+edit app/views/devise/registrations/edit.html.erb
+
+duplicate new.html.haml formatting in edit.html.haml
+
+edit edit app/views/devise/registrations/new.html.erb
+
+for sign in
+
+edit app/views/devise/sessions/new.html.erb
