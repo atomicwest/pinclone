@@ -77,3 +77,74 @@ create edit.html.haml in app/views/pins, add if statement to update method in pi
 add link to edit and destroy methods in show.html.haml
 
 add link to new pin in index.html.haml
+
+
+- - - - - - - - - - - - 
+get rid of authentication requirement for git push
+
+generate ssh key with cat command:
+$ cat ~/.ssh/id_rsa.pub
+
+create new ssh in github
+
+see repo url: $ git remote show origin
+change url: $ git remote set-url origin git+ssh://git@github.com/username/reponame.git
+----------------------------
+use devise for authentication model
+add devise to gem file and bundle install
+
+now $ rails generate devise:install
+manually edit files as indicated in prompt (only added 
+    default url to config/environment/development.rb
+    rails g devise:views)
+
+- - - - - - - - - -
+atomicwest:~/workspace/pinclone (master) $ rails generate devise MODEL
+Running via Spring preloader in process 3479
+      invoke  active_record
+      create    db/migrate/20160601112058_devise_create_models.rb
+      create    app/models/model.rb
+      invoke    test_unit
+      create      test/models/model_test.rb
+      create      test/fixtures/models.yml
+      insert    app/models/model.rb
+       route  devise_for :models
+- - - - - - - - - -
+
+rails generate devise user
+
+rake db:migrate
+
+restart server
+
+test authentication at https://localhost:3000/users/sign_up
+
+
+edit app/models/user.rb and app/models/pin.rb to associate the two
+
+run cmd in bash, create another column in database
+$ rails generate migration add_user_id_to_pins user_id:integer:index
+
+$ rake db:migrate
+
+test with $ rails console
+see the oldest pin with Pin.first; most recent with Pin.last
+
+check users> 
+>@pin = Pin.first
+>@user = User.first
+>@pin.user = @user      
+>@pin
+>@pin.save
+
+edit show.html.haml to display email;
+this only works for the pin that was associated with @pin in rails console (e.g. the oldest pin defined with Pin.first)
+error message, complaining about undefined method for nil class when selecting any other pin or creating a new pin
+
+edit pin controller with current_user.pins.build
+
+edit unassociated entries from database in rails console
+> @pin = Pin.find(2) or whatever id the  pins that need user entries are
+> @user = User.first
+> @pin.user = @user
+> @pin.save

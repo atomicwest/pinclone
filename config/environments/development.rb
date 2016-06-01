@@ -38,4 +38,9 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+  
+  # defaul url options from devise, not sure how to implement with cloud9
+  # config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  # below works for c9?
+  config.action_mailer.default_url_options = { host: 'rails-tutorial-atomicwest.c9users.io' }
 end
